@@ -94,6 +94,12 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+export EDITOR='vim'
+
+
+# Aliasing TMUXINATOR to `tx` command:
+alias tx=tmuxinator
+
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -111,6 +117,18 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# Next links VIM command to proper HomeBrew binary, which lost in TMUX
+# sessions:
+if [ -h '/opt/homebrew/bin/vim' ]; then
+  alias vim='/opt/homebrew/bin/vim'
+fi
+
+# Next links CTAGS command to proper HomeBrew binary, which lost in TMUX
+# sessions:
+if [ -h '/opt/homebrew/bin/ctags' ]; then
+  alias ctags='/opt/homebrew/bin/ctags'
+fi
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
