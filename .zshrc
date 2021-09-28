@@ -9,13 +9,18 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/ws/.oh-my-zsh"
+export ZSH="/home/wow/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussel"
+#ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time ram load)
+alias cls=clear
+
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -112,28 +117,19 @@ alias tx=tmuxinator
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias lc='colorls -A --sd'
+
+#source ~/powerlevel10k/powerlevel10k.zsh-theme
 source ~/powerlevel10k/powerlevel10k.zsh-theme
-
-
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-# Next links VIM command to proper HomeBrew binary, which lost in TMUX
-# sessions:
-if [ -h '/opt/homebrew/bin/vim' ]; then
-  alias vim='/opt/homebrew/bin/vim'
-fi
-
-# Next links CTAGS command to proper HomeBrew binary, which lost in TMUX
-# sessions:
-if [ -h '/opt/homebrew/bin/ctags' ]; then
-  alias ctags='/opt/homebrew/bin/ctags'
-fi
-
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_OPTS=--height=40% -—preview='cat {}' --preview-window='right:60%:wrap'
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# export FZF_DEFAULT_OPTS=--height=40% --preview='cat {}' --preview-window='right:60%:wrap'
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
