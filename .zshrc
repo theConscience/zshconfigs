@@ -9,7 +9,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/ws/.oh-my-zsh"
+export ZSH="/Users/rumsk401562mb/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -112,22 +112,29 @@ alias tx=tmuxinator
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
+
+# Aliasing COLORLS to `lc` command:
+alias lc='colorls -lA --sd'
+
+# colorls tab completions:
+source $(dirname $(gem which colorls))/tab_complete.sh
 
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+source $(brew --prefix nvm)/nvm.sh
 
 # Next links VIM command to proper HomeBrew binary, which lost in TMUX
 # sessions:
-if [ -h '/opt/homebrew/bin/vim' ]; then
-  alias vim='/opt/homebrew/bin/vim'
+if [ -h '/usr/local/bin/vim' ]; then
+  alias vim='/usr/local/bin/vim'
 fi
 
 # Next links CTAGS command to proper HomeBrew binary, which lost in TMUX
 # sessions:
-if [ -h '/opt/homebrew/bin/ctags' ]; then
-  alias ctags='/opt/homebrew/bin/ctags'
+if [ -h '/usr/local/bin/ctags' ]; then
+  alias ctags='/usr/local/bin/ctags'
 fi
 
 
